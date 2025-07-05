@@ -96,6 +96,8 @@ It’s far from a top-tier workstation, but with the right optimizations, it got
 
 *If you are interesting in this PC, I posted [a video on YouTube](https://www.youtube.com/watch?v=LfR-cdyeaEk&t=5s) explaining how I built it.*
 
+![Thumbnail of the custom $300 dollars PC video](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/thumbnails/custom-pc-for-300-dollars-video-thumbnail.jpg)
+
 ### The Model Architecture
 
 To make this work, I needed a model that was fast and lightweight. From the countless algorithms that exist for training, I chose MobileNetV2.
@@ -142,6 +144,7 @@ EarlyStopping(patience=5, min_delta=0.001, restore_best_weights=True)
 ModelCheckpoint(monitor='val_accuracy', save_best_only=True)
 ReduceLROnPlateau(factor=0.2, patience=3)
 ```
+
 ### Fine-Tuning the Base Model
 
 After the initial training phase, I unfroze the last 8 layers of the MobileNetV2 base and ran a short fine-tuning session with:
@@ -226,6 +229,8 @@ I connected an Arduino Nano to control the AI system. The Arduino sent signals t
 I also connected a ST7789 IPS screen to show the results. It’s a fast, colorful display that fits perfectly into small electronics projects.
 
 *If you need help at setting up this display, I recorded [a tutorial](https://www.youtube.com/watch?v=cxj0jDbT5vc&t=9s) about this.*
+
+![Thumbnail of the ST7789 display video](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/thumbnails/st7789-video-thumbnail.jpg)
 
 Here’s what the Arduino controller can do:
 
