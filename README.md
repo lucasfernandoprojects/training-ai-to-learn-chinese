@@ -222,33 +222,68 @@ Even though AI models are simplifications of reality - and they always carry som
 
 ## Bringing in Arduino
 
-The project could’ve ended there, but I wanted to take it further.
+The project could’ve ended there, but I wanted to take it further. I decided to build an AI controller using Arduino.
 
-I connected an Arduino Nano to control the AI system. The Arduino sent signals to the computer over USB, so instead of pressing keys, I could use push buttons to trigger inferences.
+The Arduino side of the project is responsible for handling user input, navigating menus, and displaying both AI recognition results and learning content on a small TFT screen. It runs on an Arduino Nano connected to a ST7789 IPS screen, 3 push buttons, and 2 indicator LEDs (green and red) - you can use a RGB LED as well.
 
-I also connected a ST7789 IPS screen to show the results. It’s a fast, colorful display that fits perfectly into small electronics projects.
-
-*If you need help at setting up this display, I recorded [a tutorial](https://www.youtube.com/watch?v=cxj0jDbT5vc&t=9s) about this.*
+*If you need help at setting up the ST7789 display, I recorded [a tutorial](https://www.youtube.com/watch?v=cxj0jDbT5vc&t=9s) about this.*
 
 ![Thumbnail of the ST7789 display video](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/thumbnails/st7789-video-thumbnail.jpg)
 
-Here’s what the Arduino controller can do:
+### Navigation and Button Mapping
 
-+ **Trigger AI inference** with a button press
-+ **Show predictions** on the IPS screen
-+ **Access a “Learn” mode** that displays each character’s Hanzi, Pinyin, and English meaning
-+ **Display an “About” screen** with project info
+The system is controlled using three push buttons, each with a clearly defined function:
+
++ **Right Button (Pin 2) → Scroll Down**
+  Used to move down in menus or lists.
+
++ **Middle Button (Pin 3) → Scroll Up**
+  Used to move up in menus or lists.
+
++ **Left Button (Pin 6) → Select / Enter**
+  Confirms the selected menu item, enters character view, or captures a photo during inference.
+
+These buttons let you easily navigate through menus, view Chinese characters, or initiate photo-based recognition.
+
+### Navigation Flow
+
+When the Arduino boots up, the following interface options are shown on the display:
+
+**Main Menu Options**
+
++ **Inference**
+  Activates photo mode. The AI system waits for a photo input via serial (triggered by the button). It then processes the image and sends back the recognized character name, which is shown on the screen.
+
++ **Learn**
+  Opens a scrollable list of Mandarin characters stored locally in the code. Selecting one will show its Hanzi, Pinyin, and meaning (the full bitmap). Perfect for self-study or offline revision.
+
++ **About**
+  Displays author credits and project version info.
 
 To make this work, I wrote a second Python script to handle serial communication and inference logic. And as you can see below, it worked pretty well.
 
-Main menu:
+**Main menu**
 
 <div style="display: flex; flex-wrap: wrap;">
     <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/20.jpg" width="400" height="250" style="margin: 10px;">
 </div>
 </br>
 
-Inference option:
+**Inference Mode**
+
+When "Inference" is selected:
+
++ The screen shows **“Waiting for photo...”**
++ Pressing the **enter button** (left) triggers a CAPTURE message over serial to the PC
++ The PC-side Python script captures the image and returns a class prediction in the format: RESULT:ban_4
+
+Once received, the screen displays:
+
++ The recognized Chinese character (using a bitmap)
++ A green LED lights up (success)
++ After 5 seconds, the system auto-returns to photo mode
+
+The **down button** (right) can be pressed at any time to exit back to the main menu.
 
 <div style="display: flex; flex-wrap: wrap;">
     <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/21.jpg" width="400" height="250" style="margin: 10px;">
@@ -256,7 +291,21 @@ Inference option:
 </div>
 </br>
 
-Learn option:
+**Learn Mode**
+
+When “Learn” is selected:
+
++ You’ll see a list of Pinyin entries (e.g. ban, ren, yi, etc.)
++ Use **up (middle)** and **down (right)** buttons to scroll
++ Press **enter (left)** to view the selected character
+
+Each character view displays:
+
++ A large bitmap version of the Mandarin symbol
++ Its **Pinyin** pronunciation and **English meaning**
++ An instruction to press **enter** to go back to the list
+
+At the bottom of the list is the **Go back** option to return to the main menu.
 
 <div style="display: flex; flex-wrap: wrap;">
     <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/23.jpg" width="400" height="250" style="margin: 10px;">
@@ -265,14 +314,48 @@ Learn option:
 </div>
 </br>
 
-About option:
+**About Screen**
+
+Displays simple credits and version information:
+
++ Creator name
++ GitHub open-source notice
++ YouTube call to action
+
+Press **enter (left)** to return to the main menu.
 
 <div style="display: flex; flex-wrap: wrap;">
     <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/26.jpg" width="400" height="250" style="margin: 10px;">
 </div>
 </br>
 
-If you’re curious about the hardware setup, here’s the schematic:
+**Visual Feedback**
+
+Two onboard LEDs provide real-time status:
+
++ **Red LED ON**: The system is in inference mode and ready to capture a photo.
++ **Green LED ON**: A result was received and displayed successfully.
++ **Both OFF**: Idle mode or main menu/learning screen.
+
+### Hardware Connections
+
+| Component | Pin |
+| --------- | --- |
+| TFT CS | D10 |
+| TFT DC | D8 |
+| TFT RST | D9 |
+| TFT BL | D7 (always on) |
+| Green LED | D4 |
+| Red LED | D5 |
+| Enter Button | D6 |
+| Up Button | D3 |
+| Down Button | D2 |
+
+*All buttons use INPUT_PULLUP logic and are **active LOW**.*
+
+**Schematics**
+
+If you want to replicate the hardware setup, here’s the schematic:
 
 ![Arduino controller schematics](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/schematics/arduino-controller.png)
 
@@ -289,9 +372,11 @@ And here is the materials list:
 
 Just assemble everything on a breadboard, connect the components according to the diagram, upload the sketch to Arduino, and you're good to go.
 
+This user interface gives the AI project a full offline interactive experience. You can teach yourself Chinese characters or let the AI recognize them live, all with just a few clicks.
+
 ![Arduino controller over a table](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/28.jpg)
 
-## WHAT I LEARNED
+## What I Learned
 
 This was the first time I built an end-to-end AI project, from collecting data to building a real-world interface. And it was one of the most satisfying accomplishments I’ve ever done.
 
