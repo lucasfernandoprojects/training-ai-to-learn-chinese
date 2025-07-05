@@ -224,10 +224,7 @@ And here is the materials list:
 
 Just assemble everything on a breadboard, connect the components according to the diagram, upload the sketch to Arduino, and you're good to go.
 
-<div style="display: flex; flex-wrap: wrap;">
-    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/28.jpg" width="400" height="250" style="margin: 10px;">
-</div>
-</br>
+![Arduino controller over a table](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/28.jpg)
 
 ## WHAT I LEARNED
 
