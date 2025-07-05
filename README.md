@@ -251,14 +251,11 @@ When the Arduino boots up, the following interface options are shown on the disp
 
 **Main Menu Options**
 
-+ **Inference**
-  Activates photo mode. The AI system waits for a photo input via serial (triggered by the button). It then processes the image and sends back the recognized character name, which is shown on the screen.
++ **Inference**: Activates photo mode. The AI system waits for a photo input via serial (triggered by the button). It then processes the image and sends back the recognized character name, which is shown on the screen.
 
-+ **Learn**
-  Opens a scrollable list of Mandarin characters stored locally in the code. Selecting one will show its Hanzi, Pinyin, and meaning (the full bitmap). Perfect for self-study or offline revision.
++ **Learn**: Opens a scrollable list of Mandarin characters stored locally in the code. Selecting one will show its Hanzi, Pinyin, and meaning (the full bitmap). Perfect for self-study or offline revision.
 
-+ **About**
-  Displays author credits and project version info.
++ **About**: Displays author credits and project version info.
 
 To make this work, I wrote a second Python script to handle serial communication and inference logic. And as you can see below, it worked pretty well.
 
