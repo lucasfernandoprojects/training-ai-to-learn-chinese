@@ -77,7 +77,9 @@ Once the dataset was ready and organized, it was time to train the model.
 
 ## Training AI on a $300 PC
 
-Training is the stage where the AI learns from data. There are a lot of technical details about this topic I'll skip because they deserve their own tutorial.
+Training is the stage where the AI learns from data. There are a lot of technical details about this topic I'll skip here because they deserve their own tutorial. But since this is a README, I’ll include some behind-the-scenes context for those interested in how the system works.
+
+### Hardware Specs
 
 AI training usually happens in the cloud because it requires a lot of memory and processing power, but cloud services are expensive. To keep things simple (and cheap), I trained the model locally on a PC I built myself for under $300.
 
@@ -94,9 +96,67 @@ It’s far from a top-tier workstation, but with the right optimizations, it got
 
 *If you are interesting in this PC, I posted [a video on YouTube](https://www.youtube.com/watch?v=LfR-cdyeaEk&t=5s) explaining how I built it.*
 
+### The Model Architecture
+
 To make this work, I needed a model that was fast and lightweight. From the countless algorithms that exist for training, I chose MobileNetV2.
 
 MobileNet is a lightweight Convolutional Neural Network (CNN) designed to run AI on small devices with limited computational resources. But not only deployment, its training doesn’t require huge resources either, which makes it perfect for this project.
+
+The model is built using **TensorFlow** and consists of:
+
++ A pre-trained **MobileNetV2 base** (with include_top=False and pooling='avg')
++ A custom **Dense(128)** layer with ReLU activation and L2 regularization
++ A **Dropout(0.4)** layer to prevent overfitting
++ A final **Dense(num_classes)** output layer with Softmax activation
+
+The base model was frozen during initial training, and only the top layers were updated.
+
+You can see the architecture visualized in plots/model_architecture.png.
+
+### Data Pipeline
+
+Data was augmented and loaded using ImageDataGenerator with the following settings:
+
++ Rescaled inputs (1./255)
++ Random rotation, width/height shift, shear, zoom
++ Light brightness variation to simulate natural lighting
++ Image size: 96x96
++ Batch size: 32
++ Class mode: categorical
++ Color mode: rgb
+
+### Training Configuration
+
+Initial training parameters I applied:
+
++ Optimizer: Adam with learning rate 0.001
++ Loss: Categorical Crossentropy
++ Epochs: 50
++ Callbacks:
+  + EarlyStopping on val_loss (patience: 5)
+  + ModelCheckpoint to save best model
+  + ReduceLROnPlateau to lower LR when plateauing
+
+```
+EarlyStopping(patience=5, min_delta=0.001, restore_best_weights=True)
+ModelCheckpoint(monitor='val_accuracy', save_best_only=True)
+ReduceLROnPlateau(factor=0.2, patience=3)
+```
+### Fine-Tuning the Base Model
+
+After the initial training phase, I unfroze the last 8 layers of the MobileNetV2 base and ran a short fine-tuning session with:
+
++ Lower learning rate (1e-5)
++ 10 additional epochs
++ More aggressive early stopping
+
+```
+for layer in model.layers[0].layers[-8:]:
+    if not isinstance(layer, layers.BatchNormalization):
+        layer.trainable = True
+```
+
+### Results
 
 I installed CUDA and cuDNN to leverage my Nvidia GPU on Ubuntu. Setting up the environment was time-consuming, but eventually everything worked.
 
