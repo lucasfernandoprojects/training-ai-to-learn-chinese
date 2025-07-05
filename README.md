@@ -68,7 +68,7 @@ I split the dataset into:
 Once the dataset was ready and organized, it was time to train the model.
 
 <div style="display: flex; flex-wrap: wrap;">
-    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/12.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/1.jpg" width="400" height="250" style="margin: 10px;">
     <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/13.jpg" width="400" height="250" style="margin: 10px;">
     <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/14.jpg" width="400" height="250" style="margin: 10px;">
     <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/15.jpg" width="400" height="250" style="margin: 10px;">
