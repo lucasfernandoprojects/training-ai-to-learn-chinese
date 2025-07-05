@@ -4,7 +4,7 @@ This is the Chinese character for half (半). What you’re in the images below 
 
 his entire system runs on a budget PC I built for under $300. The project combines data science, computer vision, coding, and electronics, and it started with a simple idea:
 
-* *Could I teach a machine something I barely understood myself?* *
+*Could I teach a machine something I barely understood myself?*
 
 Let me walk you through how I made it happen.
 
@@ -14,7 +14,7 @@ Some time ago, I started learning Simplified Mandarin. It’s been one of the ha
 
 And somewhere along the way, while struggling to memorize a character for the fifth time, I thought:
 
-* *What if I tried to teach Mandarin to an AI?* *
+*What if I tried to teach Mandarin to an AI?*
 
 I wasn’t just curious about whether it would work. I wanted to understand how an AI learns and whether its learning process could teach me something about my own. That’s when the idea took off.
 
@@ -63,7 +63,7 @@ Here's the specs:
 
 It’s far from a top-tier workstation, but with the right optimizations, it got the job done.
 
-* *If you are interesting in this PC, I posted [a video on YouTube](https://www.youtube.com/watch?v=LfR-cdyeaEk&t=5s) explaining how I built it.* *
+*If you are interesting in this PC, I posted [a video on YouTube](https://www.youtube.com/watch?v=LfR-cdyeaEk&t=5s) explaining how I built it.*
 
 To make this work, I needed a model that was fast and lightweight. From the countless algorithms that exist for training, I chose MobileNetV2.
 
@@ -122,7 +122,7 @@ I connected an Arduino Nano to control the AI system. The Arduino sent signals t
 
 I also connected a ST7789 IPS screen to show the results. It’s a fast, colorful display that fits perfectly into small electronics projects.
 
-* *If you need help at setting up this display, I recorded [a tutorial](https://www.youtube.com/watch?v=cxj0jDbT5vc&t=9s) about this.* *
+*If you need help at setting up this display, I recorded [a tutorial](https://www.youtube.com/watch?v=cxj0jDbT5vc&t=9s) about this.*
 
 
 Here’s what the Arduino controller can do:
@@ -171,7 +171,7 @@ But beyond the technical skills, this project helped me reflect on what Artifici
 
 In a time when AI is rapidly changing the world by automating jobs and reshaping industries, we need to ask ourselves:
 
-* *Who is this technology being built for? And most importantly, how do we make sure it benefits everyone?* *
+*Who is this technology being built for? And most importantly, how do we make sure it benefits everyone?*
 
 Learning about Machine Learning and creating AI tools are only meaningful if we use that knowledge to make the world better. Because if we build a future where AI concentrates power and wealth in the hands of a few - while everyone else struggles - then what was all this progress for?
 
