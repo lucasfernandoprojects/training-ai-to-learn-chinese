@@ -3,18 +3,18 @@
 This is the Chinese character for half (半). What you’re in the images below is the result of a fascinating experiment: I trained an AI to recognize handwritten Mandarin characters using a dataset I created myself. Then, I connected everything to an Arduino to make it interactive.
 
 <div style="display: flex; flex-wrap: wrap;">
-    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/2.jpg" width="700" height="550" style="margin: 10px;">
-    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/3.jpg" width="700" height="550" style="margin: 10px;">
-    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/4.jpg" width="700" height="550" style="margin: 10px;">
-    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/5.jpg" width="700" height="550" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/2.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/3.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/4.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/5.jpg" width="400" height="250" style="margin: 10px;">
 </div>
 </br>
 
 Running inference with the Arduino controller.
 
 <div style="display: flex; flex-wrap: wrap;">
-    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/6.jpg" width="700" height="550" style="margin: 10px;">
-    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/7.jpg" width="700" height="550" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/6.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/7.jpg" width="400" height="250" style="margin: 10px;">
     <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/8.jpg" width="400" height="250" style="margin: 10px;">
     <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/9.jpg" width="400" height="250" style="margin: 10px;">
     <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/10.jpg" width="400" height="250" style="margin: 10px;">
