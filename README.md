@@ -235,13 +235,13 @@ The Arduino side of the project is responsible for handling user input, navigati
 The system is controlled using three push buttons, each with a clearly defined function:
 
 + **Right Button (Pin 2) → Scroll Down**
-  Used to move down in menus or lists.
+  + Used to move down in menus or lists.
 
 + **Middle Button (Pin 3) → Scroll Up**
-  Used to move up in menus or lists.
+  + Used to move up in menus or lists.
 
 + **Left Button (Pin 6) → Select / Enter**
-  Confirms the selected menu item, enters character view, or captures a photo during inference.
+  + Confirms the selected menu item, enters character view, or captures a photo during inference.
 
 These buttons let you easily navigate through menus, view Chinese characters, or initiate photo-based recognition.
 
@@ -355,7 +355,7 @@ Two onboard LEDs provide real-time status:
 
 **Schematics**
 
-If you want to replicate the hardware setup, here’s the schematic:
+If you want to replicate the hardware setup, here is the schematics:
 
 ![Arduino controller schematics](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/schematics/arduino-controller.png)
 
