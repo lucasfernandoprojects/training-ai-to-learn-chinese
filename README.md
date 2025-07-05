@@ -45,6 +45,8 @@ In a few words, image classification is the categorization of images based on sp
 
 Let me give you an example. Imagine I have a task that requires me to build a computer program that classifies photos as either “dog” or “cat”. In this scenario, instead of explicitly telling the computer what a dog or a cat looks like, I show it a bunch of photos of these animals and let the program figure out the concepts of “dog” and “cat” by itself.
 
+![How image classification works](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/schematics/how-image-classification-works.png)
+
 This special class of algorithms that allows machines to learn by interacting with data is called Machine Learning. My goal was to train an AI model that could recognize 10 different Chinese characters based on real-world photos.
 
 But first, I needed data.
@@ -64,6 +66,14 @@ I split the dataset into:
 + **10% test data** (to evaluate after training)
 
 Once the dataset was ready and organized, it was time to train the model.
+
+<div style="display: flex; flex-wrap: wrap;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/12.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/13.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/14.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/15.jpg" width="400" height="250" style="margin: 10px;">
+</div>
+</br>
 
 ## Training AI on a $300 PC
 
@@ -102,6 +112,12 @@ I expected way worse. I assumed the dataset was too small. But the model kept im
 
 You can see the performance of the last training (with fine-tuning) on the training x validation accuracy and loss curves below. I also added the confusion matrix for reference as well.
 
+![Accuracy curve](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/plots/accuracy_curve.png)
+
+![Loss curve](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/plots/loss_curve.png)
+
+![Confusion matrix](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/plots/confusion_matrix.png)
+
 That shocked me. I was expecting much worse performance because of the limitations I discussed earlier. I thought I’d need to take hundreds - or thousands - more photos to even approach 80% accuracy. But somehow, it was already doing great.
 
 This was fascinating and also a little scary.
@@ -123,6 +139,14 @@ To evaluate the model in action, I wrote a Python script that:
 
 And it worked beautifully.
 
+<div style="display: flex; flex-wrap: wrap;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/16.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/17.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/18.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/19.jpg" width="400" height="250" style="margin: 10px;">
+</div>
+</br>
+
 Pretty cool, isn’t it? Of course, the model doesn’t get everything right, because no model is perfect. Even though it reached nearly 100% during training, it still makes mistakes.
 
 But the goal isn’t to be perfect. It’s to be useful.
@@ -143,7 +167,6 @@ I also connected a ST7789 IPS screen to show the results. It’s a fast, colorfu
 
 *If you need help at setting up this display, I recorded [a tutorial](https://www.youtube.com/watch?v=cxj0jDbT5vc&t=9s) about this.*
 
-
 Here’s what the Arduino controller can do:
 
 + **Trigger AI inference** with a button press
@@ -155,13 +178,38 @@ To make this work, I wrote a second Python script to handle serial communication
 
 Main menu:
 
+<div style="display: flex; flex-wrap: wrap;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/20.jpg" width="400" height="250" style="margin: 10px;">
+</div>
+</br>
+
 Inference option:
+
+<div style="display: flex; flex-wrap: wrap;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/21.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/22.jpg" width="400" height="250" style="margin: 10px;">
+</div>
+</br>
 
 Learn option:
 
+<div style="display: flex; flex-wrap: wrap;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/23.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/24.jpg" width="400" height="250" style="margin: 10px;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/25.jpg" width="400" height="250" style="margin: 10px;">
+</div>
+</br>
+
 About option:
 
+<div style="display: flex; flex-wrap: wrap;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/26.jpg" width="400" height="250" style="margin: 10px;">
+</div>
+</br>
+
 If you’re curious about the hardware setup, here’s the schematic:
+
+![Arduino controller schematics](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/schematics/arduino-controller.png)
 
 And here is the materials list:
 
@@ -175,6 +223,11 @@ And here is the materials list:
 + Male-to-male jumpers wires
 
 Just assemble everything on a breadboard, connect the components according to the diagram, upload the sketch to Arduino, and you're good to go.
+
+<div style="display: flex; flex-wrap: wrap;">
+    <img src="https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/project/28.jpg" width="400" height="250" style="margin: 10px;">
+</div>
+</br>
 
 ## WHAT I LEARNED
 
