@@ -1,6 +1,6 @@
 # Training AI to Learn Chinese
 
-*I've recently posted a tutorial about this project on YouTube. You can watch it [here](https://www.youtube.com/watch?v=REwaFvbelEk).*
+*I've recently posted a tutorial about this project on YouTube. You can watch it [here](https://www.youtube.com/watch?v=XQRtSKdzxjc).*
 
 ![Thumbnail of the video training AI to learn Chinese](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/thumbnails/thumbnail-final-version.png)
 
