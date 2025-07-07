@@ -1,5 +1,9 @@
 # Training AI to Learn Chinese
 
+*I've recently posted a tutorial about this project on YouTube. You can watch it [here](https://www.youtube.com/watch?v=REwaFvbelEk).*
+
+![Thumbnail of the video training AI to learn Chinese](https://github.com/lucasfernandoprojects/training-ai-to-learn-chinese/blob/main/photos/thumbnails/thumbnail-final-version.png)
+
 This is the Chinese character for half (半). What you’re in the images below is the result of a fascinating experiment: I trained an AI to recognize handwritten Mandarin characters using a dataset I created myself. Then, I connected everything to an Arduino to make it interactive.
 
 <div style="display: flex; flex-wrap: wrap;">
